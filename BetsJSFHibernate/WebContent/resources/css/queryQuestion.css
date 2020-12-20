@@ -1,0 +1,11 @@
+.layout {
+    display: table;
+}
+
+.layout .columns-container {
+    display: table-row;
+}
+
+.layout .columns-container .column {
+    display: table-cell;
+}

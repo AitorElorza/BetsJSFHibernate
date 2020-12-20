@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1‐transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition>
+
+	<f:view>
+		<h:head>
+			<title>JavaServer Faces aplikazioa</title>
+
+			<h:outputStylesheet library="css" name="queryQuestion.css" />
+		</h:head>
+		<h:body>
+			<h:form id="update">
+				<div class="layout">
+					<div class="columns-container">
+						<div class="column">
+							<p:calendar id="data" value="#{bL.data}" navigator="false"
+								mode="inline">
+								<p:ajax event="dateSelect" listener="#{bL.onDateSelect}"
+									update=":update"></p:ajax>
+							</p:calendar>
+						</div>
+						<div class="column">
+							<div >
+								<table >
+									<tr>
+										<td><p:dataTable var="event" value="#{bL.events}"
+												selectionMode="single" rowKey="#{event.eventNumber}"
+												selection="#{bL.event}" scrollable="true" scrollHeight="400">
+												
+												<p:column headerText="Id">
+													<h:outputText value="#{event.eventNumber}" />
+												</p:column>
+
+												<p:column headerText="Description">
+													<h:outputText value="#{event.description}" />
+												</p:column>
+											</p:dataTable></td>
+									</tr>
+									 <tr>
+										<td>Galdera:</td>
+									</tr>
+									<tr>
+										<td><h:inputText id="question" value="#{bL.questiond}">
+												
+											</h:inputText></td>
+									</tr>
+									<tr><td>Min Bet:</td></tr>
+									<tr>
+										<td><h:inputText id="minb" value="#{bL.betmin}">
+												 
+											</h:inputText></td>
+									</tr>
+								</table>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+
+				<div class="layout">
+					<div class="columns-container">
+						<div class="colum">
+							<h:commandButton value="Go Back"
+								action="Main?faces-redirect=true" />
+						</div>
+						<div class="colum">
+							<h:commandButton value="Create Question"
+								action="#{bL.createQuestion()}" />
+						</div>
+					</div>
+				</div>
+
+				<h:messages id="mezuak" style="color:blue" />
+
+			</h:form>
+		</h:body>
+	</f:view>
+</ui:composition>
+</html>

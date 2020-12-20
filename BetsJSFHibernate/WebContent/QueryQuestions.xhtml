@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1‐transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<title>BetsJSF QueryQuestion</title>
+	<h:outputStylesheet library="css" name="queryQuestion.css" />
+	<!--  <h:outputScript library="js" name="infoJavaScript.js" />-->
+</h:head>
+<h:body>
+	<h:form id="horria">
+		<div class="layout">
+			<div class="columns-container">
+				<div class="column">
+					<table>
+						<tr>
+							<td><p:calendar id="data" value="#{bL.data}"
+									navigator="false" mode="inline">
+									<p:ajax event="dateSelect" listener="#{bL.onDateSelect}" update=":horria:test"></p:ajax>
+								</p:calendar></td>
+
+						</tr>
+					</table>
+				</div>
+				<div class="column">
+					
+				<table>
+						<tr>
+							<td><p:dataTable id="test" var="event" value="#{bL.events}"
+									selectionMode="single" rowKey="#{event.eventNumber}"
+									selection="#{bL.event}" scrollable="true" scrollHeight="400">
+									<p:ajax event="rowSelect" update=":horria:galdera" ></p:ajax>
+									<p:column headerText="Id">
+										<h:outputText value="#{event.eventNumber}" />
+									</p:column>
+                 
+									<p:column headerText="Description">
+										<h:outputText value="#{event.description}" />
+									</p:column>
+								</p:dataTable></td>
+						</tr>
+						<tr>
+							<td><p:dataTable id="galdera" var="question" value="#{bL.event.questions}"
+								 scrollable="true" scrollHeight="400">
+									<p:ajax event="rowSelect" />
+									<p:column headerText="Id">
+										<h:outputText value="#{question.questionNumber}" />
+									</p:column>
+                 
+									<p:column headerText="Description">
+										<h:outputText value="#{question.question}" />
+									</p:column>
+								</p:dataTable></td>
+						</tr>
+
+					</table>
+
+
+
+				</div>
+			
+			</div>
+		</div>
+		<div>
+			<h:messages id="mezuak" style="color:blue" />
+
+			<h:commandButton value="Go Back" action="Main?faces-redirect=true" />
+		</div>
+
+
+	</h:form>
+</h:body>
+</html>

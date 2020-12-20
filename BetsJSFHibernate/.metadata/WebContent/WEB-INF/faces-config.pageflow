@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16074668336180" configfile="/BetsJSFHibernate/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="Main.xhtml" x="96" y="264" id="pf16076252639260" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf16076253602863 pf16076253602874 pf16082918821630" inlinks="pf16076366488495 pf16076366488496 pf16082918821631" path="/Main.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="CreateQuestions.xhtml" x="282" y="144" id="pf16076252639261" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf16076366488495" inlinks="pf16076253602863" path="/CreateQuestions.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="QueryQuestions.xhtml" x="252" y="384" id="pf16076252639262" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf16076366488496" inlinks="pf16076253602874" path="/QueryQuestions.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ShowEvents.xhtml" x="360" y="264" id="pf16082918821642" outlinks="pf16082918821631" inlinks="pf16082918821630" path="/ShowEvents.xhtml"/>
+  <links id="pf16076253602863" target="pf16076252639261" source="pf16076252639260" outcome="CreateQuestions?faces-redirect=true"/>
+  <links id="pf16076253602874" target="pf16076252639262" source="pf16076252639260" outcome="QueryQuestions?faces-redirect=true"/>
+  <links id="pf16076366488495" target="pf16076252639260" source="pf16076252639261" outcome="Main?faces-redirect=true"/>
+  <links id="pf16076366488496" target="pf16076252639260" source="pf16076252639262" outcome="Main?faces-redirect=true"/>
+  <links id="pf16082918821630" target="pf16082918821642" source="pf16076252639260" outcome="ShowEvents?faces-redirect=true"/>
+  <links id="pf16082918821631" target="pf16076252639260" source="pf16082918821642" outcome="Main?faces-redirect=true"/>
+</pageflow:Pageflow>
